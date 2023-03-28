@@ -14,7 +14,15 @@
         <mockito.version>5.2.0</mockito.version>
         <hamcrest.version>2.2</hamcrest.version>
         <jsonpath.version>2.7.0</jsonpath.version>
+        <netty.version>5.0.0.Alpha5</netty.version>
+        <ffmepg4j.version>5.1.2-1.5.8-1</ffmepg4j.version>
     </properties>
+    <repositories>
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
+        </repository>
+    </repositories>
     <dependencies>
         <dependency>
             <groupId>org.slf4j</groupId>
@@ -31,6 +39,16 @@
             <artifactId>logback-classic</artifactId>
             <version>${logback.version}</version>
         </dependency>
+        <dependency>
+          <groupId>io.netty</groupId>
+          <artifactId>netty5-all</artifactId>
+          <version>${netty.version}</version>
+        </dependency>        
+        <dependency>
+            <groupId>com.github.manevolent</groupId>
+            <artifactId>ffmpeg4j</artifactId>
+            <version>${ffmepg4j.version}</version>
+        </dependency>    
         <!-- Test Dependencies -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
