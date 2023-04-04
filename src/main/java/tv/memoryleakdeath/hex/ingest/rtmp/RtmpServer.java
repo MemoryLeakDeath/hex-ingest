@@ -23,15 +23,18 @@ public class RtmpServer {
 
 	private int port;
 	private int maxConnections;
+	private int maxWorkerThreads;
 
-	public RtmpServer(int port, int maxConnections) {
+	public RtmpServer(int port, int maxConnections, int maxWorkerThreads) {
 		this.port = port;
 		this.maxConnections = maxConnections;
+		this.maxWorkerThreads = maxWorkerThreads;
 	}
 
 	public void run() throws InterruptedException {
 		MultithreadEventLoopGroup mainGroup = new MultithreadEventLoopGroup(1, NioHandler.newFactory());
-		MultithreadEventLoopGroup workerGroup = new MultithreadEventLoopGroup(NioHandler.newFactory());
+		MultithreadEventLoopGroup workerGroup = new MultithreadEventLoopGroup(maxWorkerThreads,
+				NioHandler.newFactory());
 		Channel channel = null;
 		try {
 			ServerBootstrap bootstrap = new ServerBootstrap();

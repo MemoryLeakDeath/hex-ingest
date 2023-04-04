@@ -7,7 +7,7 @@ public class RtmpHeader implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private int chunkStreamId; // bits 0-5 (6 bits) for IDS 2-63 OR ID=0 (2 bytes) OR ID=1 (3 bytes)
-	private byte format; // chunk message header format indicator
+	private int format; // chunk message header format indicator
 	private int timestamp; // 3 bytes type 0 chunk; if equal to 16777215 (0xFFFFFF) use the
 							// extendedTimestamp field
 	private int timestampDelta; // 3 bytes type 1 or 2 chunk; if equal to 0xFFFFFF use the extendedTimestamp
@@ -29,11 +29,11 @@ public class RtmpHeader implements Serializable {
 		this.chunkStreamId = chunkStreamId;
 	}
 
-	public byte getFormat() {
+	public int getFormat() {
 		return format;
 	}
 
-	public void setFormat(byte format) {
+	public void setFormat(int format) {
 		this.format = format;
 	}
 
