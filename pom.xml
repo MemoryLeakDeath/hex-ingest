@@ -17,6 +17,7 @@
         <netty.version>5.0.0.Alpha5</netty.version>
         <ffmepg4j.version>5.1.2-1.5.8-1</ffmepg4j.version>
         <commonscli.version>1.5.0</commonscli.version>
+        <commonscollections.version>4.4</commonscollections.version>
     </properties>
     <repositories>
         <repository>
@@ -55,6 +56,12 @@
             <artifactId>commons-cli</artifactId>
             <version>${commonscli.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-collections4</artifactId>
+            <version>${commonscollections.version}</version>
+        </dependency>
+        
         <!-- Test Dependencies -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
@@ -95,6 +102,21 @@
                 <version>3.11.0</version>
                 <configuration>
                     <release>${maven.compiler.target}</release>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-checkstyle-plugin</artifactId>
+                <version>3.2.1</version>
+                <dependencies>
+                    <dependency>
+                        <groupId>com.puppycrawl.tools</groupId>
+                        <artifactId>checkstyle</artifactId>
+                        <version>10.9.3</version>
+                    </dependency>
+                </dependencies>
+                <configuration>
+                    <configLocation>checkstyle.xml</configLocation>
                 </configuration>
             </plugin>
         </plugins>        
