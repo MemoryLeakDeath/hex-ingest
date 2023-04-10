@@ -13,7 +13,8 @@ public class RtmpSetChunkSizeMessage implements RtmpMessage {
 
     @Override
     public RtmpMessage decode(RtmpHeader header, ByteBuffer payload) {
-        throw new UnsupportedOperationException("Rtmp SetChunkSize message decode not supported!");
+        chunkSize = payload.getInt();
+        return this;
     }
 
     @Override

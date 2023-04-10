@@ -14,7 +14,9 @@ public class RtmpSetPeerBandwidthMessage implements RtmpMessage {
 
     @Override
     public RtmpMessage decode(RtmpHeader header, ByteBuffer payload) {
-        throw new UnsupportedOperationException("Rtmp SetPeerBandwidth message decode not supported!");
+        windowSize = payload.getInt();
+        limitType = payload.get();
+        return this;
     }
 
     @Override

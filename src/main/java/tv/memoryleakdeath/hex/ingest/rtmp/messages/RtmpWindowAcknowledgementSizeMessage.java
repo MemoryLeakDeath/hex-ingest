@@ -13,7 +13,8 @@ public class RtmpWindowAcknowledgementSizeMessage implements RtmpMessage {
 
     @Override
     public RtmpMessage decode(RtmpHeader header, ByteBuffer payload) {
-        throw new UnsupportedOperationException("Rtmp WindowAcknowledgementSize message decode not supported!");
+        windowSize = payload.getInt();
+        return this;
     }
 
     @Override

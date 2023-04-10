@@ -13,7 +13,8 @@ public class RtmpAbortMessage implements RtmpMessage {
 
     @Override
     public RtmpMessage decode(RtmpHeader header, ByteBuffer payload) {
-        throw new UnsupportedOperationException("RTMP Abort decode not supported!");
+        csId = payload.getInt();
+        return this;
     }
 
     @Override
